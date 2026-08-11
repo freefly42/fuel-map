@@ -54,7 +54,7 @@ python3 scripts/build_data.py \
 
 The output is deterministic: identical source files produce byte-identical JSON. It writes:
 
-- `data/fuel-airports-v2.json` — canonical JSON, compressed automatically during HTTP transfer
+- `data/fuel-airports-v2.json` — deterministic, pretty-printed JSON, compressed automatically during HTTP transfer
 - `data/latest.json` — version, coverage, byte count, and SHA-256 manifest
 
 The input directory is intentionally outside this repository. FAA PDFs, report images, caches,

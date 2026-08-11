@@ -16,7 +16,7 @@ EXPECTED_ROUTE = {"KHND", "KSJN", "KIWS"}
 
 
 def canonical_json(value: object) -> bytes:
-    return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
+    return (json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode("utf-8")
 
 
 def main() -> int:
@@ -61,7 +61,7 @@ def main() -> int:
     visible = [airport for airport in airports.values() if not airport["fuel_unavailable"]]
     assert package["coverage"]["visible_fuel_marker_count"] == len(visible)
     assert latest["coverage"] == package["coverage"]
-    print(f"validated canonical JSON, v2 data schema, 364 published four-state airports, "
+    print(f"validated pretty JSON, v2 data schema, 364 published four-state airports, "
           f"{len(airports) - len(published)} additional deal airports, and {len(visible)} visible markers")
     return 0
 
