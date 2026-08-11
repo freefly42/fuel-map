@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#002868">
+    <title>Texas Pilot 100LL Map</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <header>
+      <div class="brand-lockup">
+        <img class="brand-logo" src="texas-pilot-logo.png" alt="Texas Pilot">
+        <div>
+        <p class="eyebrow">Stratux companion</p>
+        <h1>100LL Map</h1>
+        </div>
+      </div>
+      <p id="data-status" role="status">Loading saved fuel data…</p>
+    </header>
+
+    <main>
+      <details class="route-panel">
+        <summary>Route <span id="route-summary">Click to enter a route</span></summary>
+        <div class="route-editor">
+          <p>Enter airport identifiers separated by hyphens, spaces, or commas.</p>
+          <form id="route-form">
+            <label for="route">Airport route</label>
+            <div class="route-entry">
+              <input id="route" name="route" autocomplete="off">
+              <button type="submit">Show route</button>
+            </div>
+          </form>
+        </div>
+        <p id="route-message" role="status"></p>
+      </details>
+
+      <section class="map-card" aria-labelledby="map-heading">
+        <div class="map-heading">
+          <h2 id="map-heading">Fuel airports</h2>
+        </div>
+        <div class="map-stage">
+          <svg id="map" viewBox="0 0 1000 560" role="img" aria-label="Fuel airport route map"></svg>
+          <div class="map-controls">
+            <label class="symbol-size-setting" for="symbol-size">
+              Size
+              <input id="symbol-size" type="range" min="0.5" max="3" step="0.25" value="1">
+              <output id="symbol-size-label" for="symbol-size">100%</output>
+            </label>
+            <label class="groundspeed-setting" id="groundspeed-setting" for="groundspeed" hidden>
+              Speed
+              <span><input id="groundspeed" type="number" min="1" max="999" step="1" inputmode="decimal" placeholder="kt"> kt</span>
+            </label>
+            <div class="planning-setting location-setting">
+              <span>Location</span>
+              <button id="current-location" type="button" aria-label="Use current location" aria-pressed="true" title="Use current location">⌖</button>
+              <input id="planning-location" list="airport-options" autocomplete="off" placeholder="Airport ID" aria-label="Planning airport identifier">
+            </div>
+            <datalist id="airport-options"></datalist>
+            <label class="planning-setting fuel-remaining-setting" for="fuel-remaining">
+              Fuel time
+              <input id="fuel-remaining" type="text" size="5" inputmode="numeric" pattern="[0-9]+:[0-5][0-9]" maxlength="6" placeholder="hh:mm" autocomplete="off" aria-label="Fuel remaining duration in hours and minutes">
+            </label>
+          </div>
+        </div>
+        <details class="legend-panel">
+          <summary>Show legend</summary>
+          <div class="legend" aria-label="Map legend">
+            <p class="map-help">Scroll or pinch to zoom; drag to pan. Airport labels appear as you zoom in. Location stays on this device.</p>
+            <span><i class="super-deal-dot"></i>AirNav Super Deal</span>
+            <span><i class="green-dot"></i>AirNav Great Deal</span>
+            <span><i class="sky-blue-dot"></i>$0.75+ below state average</span>
+            <span><i class="indigo-dot"></i>Below state average</span>
+            <span><i class="yellow-dot"></i>State average to $0.74 above</span>
+            <span><i class="orange-dot"></i>$0.75+ above state average</span>
+            <span><i class="gray-dot"></i>Unknown price, age, or state average</span>
+            <span><i class="part-time-dot"></i>Limited or unknown hours</span>
+            <span><i class="red-dot"></i>Fuel NOTAM</span>
+            <span><i class="route-dot"></i>Route</span>
+            <span><i class="ownship-dot"></i>Current or planning position</span>
+            <span><i class="orange-dot"></i>Under 30 minutes reserve</span>
+            <span><i class="yellow-dot"></i>30–45 minutes reserve</span>
+            <span>Colors fade from day 14 to gray at day 120.</span>
+          </div>
+        </details>
+        <div id="airport-tooltip" role="tooltip" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="safety-note">
+        <h2>Preflight safety</h2>
+        <p>
+          This is planning data, not an operational fuel guarantee. Verify current fuel
+          availability, prices, airport status, weather, and NOTAMs with authoritative sources
+          before every flight.
+        </p>
+      </section>
+    </main>
+    <script src="app.js" defer></script>
+  </body>
+</html>
