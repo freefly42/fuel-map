@@ -415,7 +415,7 @@ function renderMap() {
     const hit = svg("circle", { cx: point.x, cy: point.y, r: Math.max(radius, 14 * pixelUnit), class: "marker-hit" });
     makeClickable(hit, airport);
     markers.push(marker, hit);
-    labels.push(airportLabel(airport, point, 6 * unitPerPixel, 5 * unitPerPixel, 9 * unitPerPixel, `airport-label${labelAll ? " visible" : ""}`, fuelColor(airport)));
+    labels.push(airportLabel(airport, point, 6 * unitPerPixel, 5 * unitPerPixel, 9 * unitPerPixel, `airport-label${labelAll ? " visible" : ""}`, markerColor));
   }
   map.append(...labels, ...markers);
 
