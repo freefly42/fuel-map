@@ -135,7 +135,7 @@ function usePackageData(packageData) {
   renderAirportOptions(planningLocationInput.value);
   state.stateAveragePrices = packageData.state_average_100ll_price_usd_per_gallon || {};
   document.querySelector("#data-status").textContent =
-    `${packageData.coverage.airport_count} airports • lower-48 deals plus AZ, NM, NV, TX coverage • ${formatUpdate(packageData.generated_at, packageData.commit_id)} • works offline after first load`;
+    `${packageData.coverage.airport_count} public airports • ${packageData.coverage.fuel_airport_count} advertise 100LL • all 50 states • ${formatUpdate(packageData.generated_at, packageData.commit_id)} • works offline after first load`;
 }
 
 async function loadData() {
@@ -154,16 +154,31 @@ function isStratux() {
   return location.hostname === "192.168.10.1" || /(^|\.)stratux(?:\.local)?$/i.test(location.hostname);
 }
 
+function mapPosition(airport) {
+  const { latitude, longitude } = airport.position;
+  if (latitude > 50) {
+    const alaskaLongitude = longitude > 0 ? longitude - 360 : longitude;
+    return { longitude: -125 + (alaskaLongitude + 190) / 5, latitude: 24 + (latitude - 51) * 8 / 21 };
+  }
+  if (latitude < 23.5 && longitude < -150) {
+    return { longitude: -111 + (longitude + 161), latitude: 25 + (latitude - 18) * 4 / 5 };
+  }
+  return airport.position;
+}
+
 function projection(airports) {
-  const points = airports.map(airport => airport.position).concat(Object.values(STATE_OUTLINES).flat(2).map(([longitude, latitude]) => ({ longitude, latitude })));
+  const points = airports.map(mapPosition).concat(Object.values(STATE_OUTLINES).flat(2).map(([longitude, latitude]) => ({ longitude, latitude })));
   const west = Math.min(...points.map(point => point.longitude));
   const east = Math.max(...points.map(point => point.longitude));
   const south = Math.min(...points.map(point => point.latitude));
   const north = Math.max(...points.map(point => point.latitude));
-  return airport => ({
-    x: 35 + ((airport.position.longitude - west) / (east - west)) * 930,
-    y: 525 - ((airport.position.latitude - south) / (north - south)) * 490,
-  });
+  return airport => {
+    const position = mapPosition(airport);
+    return {
+      x: 35 + ((position.longitude - west) / (east - west)) * 930,
+      y: 525 - ((position.latitude - south) / (north - south)) * 490,
+    };
+  };
 }
 
 function addStateOutlines(project) {
@@ -180,7 +195,7 @@ function showAirport(airport, event) {
   heading.textContent = `${airport.id} — ${airport.name}`;
   const description = document.createElement("p");
   const deal = airport.deal_rating === 2 ? " • Super Deal" : airport.deal_rating === 1 ? " • Great Deal" : "";
-  description.textContent = `${airport.city}, ${airport.state}${deal}${airport.fuel_24_hours === true ? " • 24-hour fuel" : ""}`;
+  description.textContent = `${airport.city}, ${airport.state}${deal}${airport.fuel_24_hours === true ? " • 24-hour fuel" : ""}${airport.services.fuel_100ll ? "" : " • 100LL not listed"}`;
   const close = document.createElement("button");
   close.className = "tooltip-close";
   close.type = "button";
@@ -352,7 +367,7 @@ function addGrid() {
 
 function renderMap() {
   const airports = [...state.airports.values()];
-  const all = airports.filter(airportInRange);
+  const all = airports.filter(airport => airport.services.fuel_100ll).filter(airportInRange);
   const project = projection(airports);
   map.replaceChildren();
   map.setAttribute("viewBox", `${state.view.x} ${state.view.y} ${state.view.width} ${state.view.height}`);
@@ -412,7 +427,7 @@ function applyRoute() {
   routeMessage.textContent = !state.route.length
     ? ""
     : missing.length
-    ? `Not present in this four-state snapshot: ${missing.join(", ")}`
+    ? `Not present in the public-airport list: ${missing.join(", ")}`
     : `${state.route.length} route airport${state.route.length === 1 ? "" : "s"} shown.`;
   routeSummary.textContent = state.route.length ? state.route.join(" → ") : "Click to enter a route";
   renderMap();
