@@ -51,7 +51,10 @@
           </div>
           <dialog id="settings-dialog" aria-labelledby="settings-heading">
             <form method="dialog">
-              <h2 id="settings-heading">Flight settings</h2>
+              <div class="settings-heading">
+                <h2 id="settings-heading">Flight settings</h2>
+                <button id="settings-clear" type="button">Clear</button>
+              </div>
               <div class="settings-row">
                 <div class="planning-setting location-setting">
                   <span>Loc</span>
@@ -64,7 +67,6 @@
                 <label class="planning-setting fuel-remaining-setting" for="fuel-remaining">
                   Fuel <input id="fuel-remaining" type="text" size="5" inputmode="numeric" pattern="[0-9]{1,2}:[0-5][0-9]" maxlength="5" placeholder="hh:mm" autocomplete="off" aria-label="Fuel remaining duration in hours and minutes">
                 </label>
-                <button class="settings-close" value="close" aria-label="Close flight settings">×</button>
               </div>
               <datalist id="airport-options"></datalist>
             </form>

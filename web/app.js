@@ -748,6 +748,29 @@ function setSymbolScale(value, persist = false) {
 
 symbolSizeInput.addEventListener("input", () => setSymbolScale(Number(symbolSizeInput.value), true));
 document.querySelector("#settings-open").addEventListener("click", () => settingsDialog.showModal());
+settingsDialog.addEventListener("click", event => {
+  const bounds = settingsDialog.getBoundingClientRect();
+  if (event.target === settingsDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) settingsDialog.close();
+});
+document.querySelector("#settings-clear").addEventListener("click", () => {
+  planningLocationInput.value = "K";
+  planningLocationInput.setCustomValidity("");
+  groundspeedInput.value = "";
+  fuelRemainingInput.value = "";
+  fuelRemainingInput.setCustomValidity("");
+  state.locationOverride = null;
+  state.aircraftPosition = state.actualPosition;
+  state.manualSpeedKnots = null;
+  state.fuelMinutes = null;
+  try {
+    [PLANNING_LOCATION_STORAGE_KEY, MANUAL_SPEED_STORAGE_KEY, FUEL_REMAINING_STORAGE_KEY].forEach(key => localStorage.removeItem(key));
+  } catch (error) {
+    console.warn("Could not clear flight settings", error);
+  }
+  renderAirportOptions("K");
+  updatePlanningControls();
+  if (state.airports.size) renderMap();
+});
 
 try {
   const savedSymbolScale = Number(localStorage.getItem(SYMBOL_SIZE_STORAGE_KEY));
