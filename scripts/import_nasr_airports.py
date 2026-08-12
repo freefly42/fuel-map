@@ -45,11 +45,12 @@ def airport_record(row: dict[str, str], previous: dict | None, effective: str) -
     }
     airport.update(
         id=row["ICAO_ID"].strip() or row["ARPT_ID"].strip(),
+        faa_id=row["ARPT_ID"].strip(),
         name=row["ARPT_NAME"].strip().title(),
         city=row["CITY"].strip().title(),
         state=row["STATE_NAME"].strip().title(),
         state_code=row["STATE_CODE"].strip(),
-        facility_use="public",
+        facility_use="public" if row["FACILITY_USE_CODE"] == "PU" else "restricted",
         position={
             "latitude": float(row["LAT_DECIMAL"]),
             "longitude": float(row["LONG_DECIMAL"]),
@@ -82,7 +83,8 @@ def main() -> int:
             and row["STATE_CODE"] in STATES
             and row["SITE_TYPE_CODE"] == "A"
             and row["ARPT_STATUS"] == "O"
-            and row["FACILITY_USE_CODE"] == "PU"]
+            and (row["FACILITY_USE_CODE"] == "PU"
+                 or row["FACILITY_USE_CODE"] == "PR" and has_100ll(row))]
     if not rows:
         raise ValueError("NASR input contained no open public-use airports")
     effective_dates = {row["EFF_DATE"] for row in rows}
@@ -96,15 +98,18 @@ def main() -> int:
     airports = [airport_record(row, previous.get(row["ICAO_ID"].strip() or row["ARPT_ID"].strip()), effective)
                 for row in rows]
     airports.sort(key=lambda airport: airport["id"])
-    identifiers = sorted(airport["id"] for airport in airports if airport["services"]["fuel_100ll"])
+    identifiers = sorted(airport["id"] for airport in airports
+                         if airport["facility_use"] == "public" and airport["services"]["fuel_100ll"])
     state_names = {row["STATE_CODE"]: row["STATE_NAME"].strip().title() for row in rows}
     package["airports"] = airports
     package["data_version"] = f"{package['data_version'].split('-nasr', 1)[0]}-nasr{effective.replace('-', '')}"
     package["coverage"] = {
-        "scope": "all-50-states-open-public-use-airports",
+        "scope": "all-50-states-open-public-use-and-restricted-fuel-airports",
         "states": [{"code": code, "name": state_names[code]} for code in sorted(STATES)],
         "airport_count": len(airports),
-        "fuel_airport_count": len(identifiers),
+        "public_airport_count": sum(airport["facility_use"] == "public" for airport in airports),
+        "restricted_airport_count": sum(airport["facility_use"] == "restricted" for airport in airports),
+        "fuel_airport_count": sum(airport["services"]["fuel_100ll"] for airport in airports),
         "visible_fuel_marker_count": sum(
             airport["services"]["fuel_100ll"] and not airport["fuel_unavailable"]
             for airport in airports
@@ -119,8 +124,9 @@ def main() -> int:
     package_path.write_bytes(raw)
     latest_path.write_bytes(json_bytes(latest))
     (args.root / "config" / "airports.json").write_bytes(json_bytes(identifiers))
-    print(f"imported {len(airports)} public destinations in {len(STATES)} states; "
-          f"queued {len(identifiers)} airports advertising 100LL")
+    print(f"imported {package['coverage']['public_airport_count']} public destinations and "
+          f"{package['coverage']['restricted_airport_count']} restricted fuel airports in "
+          f"{len(STATES)} states; queued {len(identifiers)} public airports advertising 100LL")
     return 0
 
 

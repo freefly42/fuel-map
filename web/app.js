@@ -141,7 +141,7 @@ function usePackageData(packageData) {
   renderAirportOptions(planningLocationInput.value);
   state.stateAveragePrices = packageData.state_average_100ll_price_usd_per_gallon || {};
   document.querySelector("#data-status").textContent =
-    `${packageData.coverage.airport_count} public airports • ${packageData.coverage.fuel_airport_count} advertise 100LL • all 50 states • ${formatUpdate(packageData.generated_at, packageData.commit_id)} • works offline after first load`;
+    `${packageData.coverage.public_airport_count} public airports • ${packageData.coverage.restricted_airport_count} restricted fuel airports • ${packageData.coverage.fuel_airport_count} advertise 100LL • all 50 states • ${formatUpdate(packageData.generated_at, packageData.commit_id)} • works offline after first load`;
 }
 
 async function loadData() {
@@ -205,7 +205,7 @@ function showAirport(airport, event) {
   heading.textContent = `${airport.id} — ${airport.name}`;
   const description = document.createElement("p");
   const deal = airport.deal_rating === 2 ? " • Super Deal" : airport.deal_rating === 1 ? " • Great Deal" : "";
-  description.textContent = `${airport.city}, ${airport.state}${deal}${airport.fuel_24_hours === true ? " • 24-hour fuel" : ""}${airport.services.fuel_100ll ? "" : " • 100LL not listed"}`;
+  description.textContent = `${airport.city}, ${airport.state}${airport.facility_use === "restricted" ? " • Restricted access" : ""}${deal}${airport.fuel_24_hours === true ? " • 24-hour fuel" : ""}${airport.services.fuel_100ll ? "" : " • 100LL not listed"}`;
   const close = document.createElement("button");
   close.className = "tooltip-close";
   close.type = "button";
@@ -233,13 +233,16 @@ function showAirport(airport, event) {
   }
   const warning = document.createElement("p");
   warning.className = "warning";
-  warning.textContent = airport.fuel_unavailable ? "Fuel NOTAM — verify current availability" : "";
+  warning.textContent = [
+    airport.facility_use === "restricted" ? "Restricted access — prior permission may be required" : "",
+    ...airport.notams.filter(notice => notice.active !== false).map(notice => `Fuel NOTAM ${notice.number}: ${notice.text}`),
+  ].filter(Boolean).join(" • ");
   const navigation = document.createElement("p");
   navigation.className = "navigation";
   navigation.textContent = navigationText(airport);
   tooltip.replaceChildren(close, heading, description);
   if (navigation.textContent) tooltip.append(navigation);
-  if (airport.fuel_unavailable) tooltip.append(warning);
+  if (warning.textContent) tooltip.append(warning);
   tooltip.append(offers);
   tooltip.hidden = false;
   const card = map.closest(".map-card").getBoundingClientRect();
@@ -338,7 +341,7 @@ function lowestPrice(airport, maxAge) {
 }
 
 function fuelColor(airport, stateAverages = state.stateAveragePrices) {
-  if (airport.fuel_unavailable) return "#e31b23";
+  if (airport.fuel_unavailable || airport.facility_use === "restricted") return "#e31b23";
   if (airport.deal_rating === 2) return "#39ff14";
   if (airport.deal_rating === 1) return "#22c55e";
   const lowest = lowestPrice(airport);
@@ -434,10 +437,11 @@ function renderMap() {
   const routeMarkers = [];
   for (const airport of routeAirports) {
     const point = project(airport);
-    const marker = svg("circle", { cx: point.x, cy: point.y, r: 7 * unitPerPixel, class: `route-marker${airport.fuel_unavailable ? " unavailable" : ""}` });
+    const unavailable = airport.fuel_unavailable || airport.facility_use === "restricted";
+    const marker = svg("circle", { cx: point.x, cy: point.y, r: 7 * unitPerPixel, class: `route-marker${unavailable ? " unavailable" : ""}` });
     makeClickable(marker, airport);
     routeMarkers.push(marker);
-    routeLabels.push(airportLabel(airport, point, 8 * unitPerPixel, 7 * unitPerPixel, 10 * unitPerPixel, "airport-label route-label", airport.fuel_unavailable ? "#ed6a5a" : "#f0f"));
+    routeLabels.push(airportLabel(airport, point, 8 * unitPerPixel, 7 * unitPerPixel, 10 * unitPerPixel, "airport-label route-label", unavailable ? "#ed6a5a" : "#f0f"));
   }
   map.append(...routeLabels, ...routeMarkers);
   if (state.aircraftPosition) {
@@ -523,6 +527,7 @@ console.assert(airportMatchRank({ id: "KDAL", name: "Love Field", city: "Dallas"
 const colorCheck = { state_code: "TX", fuel_unavailable: false, deal_rating: 0, offers: [{ price_age_days: 14, self_service_price_usd_per_gallon: 5.94, full_service_price_usd_per_gallon: null }] };
 const texasAverage = { TX: 6.69 };
 console.assert(fuelColor(colorCheck, texasAverage) === "rgb(125, 211, 252)", "sky-blue fuel price color failed");
+console.assert(fuelColor({ ...colorCheck, facility_use: "restricted" }, texasAverage) === "#e31b23", "restricted airport color failed");
 colorCheck.offers[0].self_service_price_usd_per_gallon = 5.95;
 console.assert(fuelColor(colorCheck, texasAverage) === "rgb(139, 92, 246)", "indigo fuel price color failed");
 colorCheck.offers[0].self_service_price_usd_per_gallon = 6.69;
