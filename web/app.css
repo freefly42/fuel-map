@@ -89,7 +89,7 @@ button:hover { background: #950824; }
 .route-line { fill: none; stroke: #f0f; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; vector-effect: non-scaling-stroke; }
 .route-marker { fill: #f0f; cursor: pointer; }
 .route-marker.unavailable { fill: #ed6a5a; }
-.ownship-marker { fill: #fff; stroke: #bf0a30; stroke-width: 2; pointer-events: none; vector-effect: non-scaling-stroke; }
+.ownship-marker { pointer-events: none; }
 .airport-label { display: none; font-weight: 700; paint-order: stroke; cursor: pointer; stroke: #001a44; stroke-width: 1px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .airport-label.visible, .route-label { display: block; }
 .airport-price { font-size: .8em; }

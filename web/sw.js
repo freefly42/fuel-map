@@ -1,5 +1,5 @@
-const SHELL_CACHE = "fuel-route-shell-v47";
-const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./texas-pilot-logo.png", "./manifest.webmanifest"];
+const SHELL_CACHE = "fuel-route-shell-v48";
+const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./RedPlane.svg", "./texas-pilot-logo.png", "./manifest.webmanifest"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(SHELL_CACHE).then(cache => cache.addAll(SHELL)));
