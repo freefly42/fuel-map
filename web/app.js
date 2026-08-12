@@ -416,7 +416,7 @@ function renderMap() {
   map.append(...routeLabels, ...routeMarkers);
   if (state.aircraftPosition) {
     const point = project({ position: state.aircraftPosition });
-    const size = 28 * pixelUnit;
+    const size = 42 * pixelUnit * state.symbolScale;
     map.append(svg("image", { href: "./RedPlane.svg", x: point.x - size / 2, y: point.y - size / 2, width: size, height: size, class: "ownship-marker", role: "img", "aria-label": "Aircraft position" }));
   }
 }
