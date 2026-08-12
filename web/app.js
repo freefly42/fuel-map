@@ -219,8 +219,9 @@ function showAirport(airport, event) {
     const prices = document.createElement("span");
     const guaranteed = offer.source_updated === "Guaranteed";
     const suffix = guaranteed ? "*" : "";
-    const age = guaranteed ? "guaranteed" : Number.isInteger(offer.price_age_days)
-      ? `${offer.price_age_days} day${offer.price_age_days === 1 ? "" : "s"} old`
+    const ageDays = priceAgeDays(offer, airport);
+    const age = Number.isInteger(ageDays)
+      ? `${guaranteed ? "guaranteed • " : ""}${ageDays} day${ageDays === 1 ? "" : "s"} old`
       : "age unknown";
     provider.textContent = offer.provider;
     prices.textContent = typeof offer.price_usd_per_gallon === "number"
@@ -320,15 +321,17 @@ function mixWithGray(color, amount) {
   return `rgb(${color.map(value => Math.round(value + (128 - value) * amount)).join(", ")})`;
 }
 
-function priceAgeDays(offer) {
-  return offer.source_updated === "Guaranteed" ? Math.min(Number.isInteger(offer.price_age_days) && offer.price_age_days >= 0 ? offer.price_age_days : 10, 10) : offer.price_age_days;
+function priceAgeDays(offer, airport, now = Date.now()) {
+  if (offer.source_updated !== "Guaranteed") return offer.price_age_days;
+  const checked = Date.parse(airport?.fuel_checked_at);
+  return Number.isFinite(checked) ? Math.min(10, Math.max(0, Math.floor((now - checked) / 86400000))) : 10;
 }
 
 function lowestPrice(airport, maxAge) {
   const prices = airport.offers.flatMap(offer =>
     [offer.price_usd_per_gallon, offer.self_service_price_usd_per_gallon, offer.full_service_price_usd_per_gallon]
       .filter(price => typeof price === "number" && price > 0)
-      .map(price => ({ price, age: priceAgeDays(offer) }))
+      .map(price => ({ price, age: priceAgeDays(offer, airport) }))
   ).filter(price => maxAge === undefined || Number.isInteger(price.age) && price.age >= 0 && price.age < maxAge);
   return prices.length ? prices.reduce((best, price) => price.price < best.price ? price : best) : null;
 }
@@ -523,8 +526,9 @@ console.assert(fuelColor(colorCheck, texasAverage) === "rgb(128, 128, 128)", "fu
 console.assert(lowestPrice(colorCheck, 30) === null && wheelZoomFactor(1, 0) < 1.01, "fresh price or smooth zoom failed");
 console.assert(servicePrice(false, 5.99) === "none" && servicePrice(true, null) === "unknown" && servicePrice(true, 5.99) === "$5.99", "service price labels failed");
 console.assert(servicePrice(true, 5.99, "*") === "$5.99*", "guaranteed price label failed");
-console.assert(priceAgeDays({ source_updated: "Guaranteed", price_age_days: null }) === 10
-  && priceAgeDays({ source_updated: "Guaranteed", price_age_days: 90 }) === 10, "guaranteed price age cap failed");
+console.assert(priceAgeDays({ source_updated: "Guaranteed" }, { fuel_checked_at: "2026-08-08T00:00:00Z" }, Date.parse("2026-08-12T00:00:00Z")) === 4
+  && priceAgeDays({ source_updated: "Guaranteed" }, { fuel_checked_at: "2026-07-01T00:00:00Z" }, Date.parse("2026-08-12T00:00:00Z")) === 10
+  && priceAgeDays({ source_updated: "Guaranteed" }, {}) === 10, "guaranteed checked age failed");
 console.assert(insertDurationColon("03", "insertText") === "03:" && insertDurationColon("03", "deleteContentBackward") === "03", "duration colon insertion failed");
 console.assert(Math.abs(distanceNm({ latitude: 32.8968, longitude: -97.038 }, { latitude: 32.8998, longitude: -97.0403 }) - 0.2) < 0.1, "nautical-mile distance failed");
 state.aircraftPosition = { latitude: 0, longitude: 0 };
