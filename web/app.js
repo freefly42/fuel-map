@@ -771,7 +771,9 @@ document.querySelector("#settings-clear").addEventListener("click", () => {
   fuelRemainingInput.value = "";
   fuelRemainingInput.setCustomValidity("");
   state.locationOverride = null;
-  state.aircraftPosition = state.actualPosition;
+  state.actualPosition = null;
+  state.aircraftPosition = null;
+  state.detectedSpeedKnots = null;
   state.manualSpeedKnots = null;
   state.fuelMinutes = null;
   try {
@@ -782,6 +784,8 @@ document.querySelector("#settings-clear").addEventListener("click", () => {
   renderAirportOptions("K");
   updatePlanningControls();
   if (state.airports.size) renderMap();
+  if (isStratux()) updateStratuxPosition().catch(error => console.warn("Stratux position unavailable", error));
+  else navigator.geolocation?.getCurrentPosition(setBrowserPosition, error => console.warn("Browser position unavailable", error), { enableHighAccuracy: true, maximumAge: 0 });
 });
 
 try {
