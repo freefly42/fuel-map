@@ -711,10 +711,9 @@ currentLocationButton.addEventListener("click", () => {
   applyPlanningLocation();
   planningLocationInput.value = "K";
   renderAirportOptions("K");
-  if (!state.actualPosition) {
-    if (isStratux()) updateStratuxPosition().catch(error => console.warn("Stratux position unavailable", error));
-    else navigator.geolocation?.getCurrentPosition(setBrowserPosition, error => console.warn("Browser position unavailable", error), { enableHighAccuracy: true, maximumAge: 5000 });
-  }
+  centerOnNextPosition = true;
+  if (isStratux()) updateStratuxPosition().catch(error => console.warn("Stratux position unavailable", error));
+  else navigator.geolocation?.getCurrentPosition(setBrowserPosition, error => console.warn("Browser position unavailable", error), { enableHighAccuracy: true, maximumAge: 0 });
 });
 
 groundspeedInput.addEventListener("change", () => {
@@ -800,8 +799,6 @@ document.querySelector("#settings-clear").addEventListener("click", () => {
   renderAirportOptions("K");
   updatePlanningControls();
   if (state.airports.size) renderMap();
-  if (isStratux()) updateStratuxPosition().catch(error => console.warn("Stratux position unavailable", error));
-  else navigator.geolocation?.getCurrentPosition(setBrowserPosition, error => console.warn("Browser position unavailable", error), { enableHighAccuracy: true, maximumAge: 0 });
 });
 
 try {
