@@ -312,11 +312,15 @@ function mixWithGray(color, amount) {
   return `rgb(${color.map(value => Math.round(value + (128 - value) * amount)).join(", ")})`;
 }
 
+function priceAgeDays(offer) {
+  return offer.source_updated === "Guaranteed" ? Math.min(Number.isInteger(offer.price_age_days) && offer.price_age_days >= 0 ? offer.price_age_days : 10, 10) : offer.price_age_days;
+}
+
 function lowestPrice(airport, maxAge) {
   const prices = airport.offers.flatMap(offer =>
     [offer.price_usd_per_gallon, offer.self_service_price_usd_per_gallon, offer.full_service_price_usd_per_gallon]
       .filter(price => typeof price === "number" && price > 0)
-      .map(price => ({ price, age: offer.price_age_days }))
+      .map(price => ({ price, age: priceAgeDays(offer) }))
   ).filter(price => maxAge === undefined || Number.isInteger(price.age) && price.age >= 0 && price.age < maxAge);
   return prices.length ? prices.reduce((best, price) => price.price < best.price ? price : best) : null;
 }
@@ -511,6 +515,8 @@ console.assert(fuelColor(colorCheck, texasAverage) === "rgb(128, 128, 128)", "fu
 console.assert(lowestPrice(colorCheck, 30) === null && wheelZoomFactor(1, 0) < 1.01, "fresh price or smooth zoom failed");
 console.assert(servicePrice(false, 5.99) === "none" && servicePrice(true, null) === "unknown" && servicePrice(true, 5.99) === "$5.99", "service price labels failed");
 console.assert(servicePrice(true, 5.99, "*") === "$5.99*", "guaranteed price label failed");
+console.assert(priceAgeDays({ source_updated: "Guaranteed", price_age_days: null }) === 10
+  && priceAgeDays({ source_updated: "Guaranteed", price_age_days: 90 }) === 10, "guaranteed price age cap failed");
 console.assert(insertDurationColon("03", "insertText") === "03:" && insertDurationColon("03", "deleteContentBackward") === "03", "duration colon insertion failed");
 console.assert(Math.abs(distanceNm({ latitude: 32.8968, longitude: -97.038 }, { latitude: 32.8998, longitude: -97.0403 }) - 0.2) < 0.1, "nautical-mile distance failed");
 state.aircraftPosition = { latitude: 0, longitude: 0 };
