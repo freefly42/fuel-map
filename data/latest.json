@@ -1,14 +1,14 @@
 {
   "artifact": {
-    "bytes": 4015653,
+    "bytes": 4015636,
     "media_type": "application/json",
     "path": "fuel-airports-v2.json",
-    "sha256": "3fb1a1a34b462ba2be9cb28b179380b65a831e3eccbc194708d95f57a80ceacb"
+    "sha256": "805117ff3743686f4f9e8b5e0d818de3827f2ba9fff3ddf06351d182e0c8b9a5"
   },
   "coverage": {
     "airport_count": 4705,
     "fuel_airport_count": 3118,
-    "scope": "lower-48-great-deals-plus-four-state-published-airports",
+    "scope": "all-50-states-open-public-use-airports",
     "states": [
       {
         "code": "AK",
@@ -211,7 +211,7 @@
         "name": "Wyoming"
       }
     ],
-    "visible_fuel_marker_count": 4702
+    "visible_fuel_marker_count": 3115
   },
   "data_version": "20260812T042006Z",
   "generated_at": "2026-08-12T04:20:06Z",

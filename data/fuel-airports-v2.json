@@ -138726,7 +138726,7 @@
   "coverage": {
     "airport_count": 4705,
     "fuel_airport_count": 3118,
-    "scope": "lower-48-great-deals-plus-four-state-published-airports",
+    "scope": "all-50-states-open-public-use-airports",
     "states": [
       {
         "code": "AK",
@@ -138929,7 +138929,7 @@
         "name": "Wyoming"
       }
     ],
-    "visible_fuel_marker_count": 4702
+    "visible_fuel_marker_count": 3115
   },
   "data_version": "20260812T042006Z",
   "generated_at": "2026-08-12T04:20:06Z",
