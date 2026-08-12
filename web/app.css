@@ -85,6 +85,7 @@ button:hover { background: #950824; }
 #map.dragging { cursor: grabbing; }
 .map-grid { stroke: #29497b; stroke-width: 1; }
 .state-outline { fill: none; stroke: #7890b5; stroke-width: 1.5; pointer-events: none; vector-effect: non-scaling-stroke; }
+.lake-outline { fill: #001a44; stroke: #7890b5; stroke-width: 1.5; pointer-events: none; vector-effect: non-scaling-stroke; }
 .fuel-marker { pointer-events: none; }
 .marker-hit { fill: transparent; cursor: pointer; }
 .route-line { fill: none; stroke: #f0f; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; vector-effect: non-scaling-stroke; }
