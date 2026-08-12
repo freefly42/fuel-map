@@ -529,6 +529,8 @@ console.assert(servicePrice(true, 5.99, "*") === "$5.99*", "guaranteed price lab
 console.assert(priceAgeDays({ source_updated: "Guaranteed" }, { fuel_checked_at: "2026-08-08T00:00:00Z" }, Date.parse("2026-08-12T00:00:00Z")) === 4
   && priceAgeDays({ source_updated: "Guaranteed" }, { fuel_checked_at: "2026-07-01T00:00:00Z" }, Date.parse("2026-08-12T00:00:00Z")) === 10
   && priceAgeDays({ source_updated: "Guaranteed" }, {}) === 10, "guaranteed checked age failed");
+console.assert(manualSpeedNeeded(null, null) && manualSpeedNeeded({ latitude: 1, longitude: 1 }, 120)
+  && !manualSpeedNeeded(null, 120), "manual speed visibility failed");
 console.assert(insertDurationColon("03", "insertText") === "03:" && insertDurationColon("03", "deleteContentBackward") === "03", "duration colon insertion failed");
 console.assert(Math.abs(distanceNm({ latitude: 32.8968, longitude: -97.038 }, { latitude: 32.8998, longitude: -97.0403 }) - 0.2) < 0.1, "nautical-mile distance failed");
 state.aircraftPosition = { latitude: 0, longitude: 0 };
@@ -630,9 +632,13 @@ try {
   console.warn("Could not load route", error);
 }
 
+function manualSpeedNeeded(locationOverride, detectedSpeedKnots) {
+  return Boolean(locationOverride) || detectedSpeedKnots === null;
+}
+
 function updatePlanningControls() {
   currentLocationButton.setAttribute("aria-pressed", String(!state.locationOverride));
-  groundspeedSetting.hidden = !state.aircraftPosition || (!state.locationOverride && state.detectedSpeedKnots !== null);
+  groundspeedSetting.hidden = !manualSpeedNeeded(state.locationOverride, state.detectedSpeedKnots);
 }
 
 function applyPlanningLocation(interactive = true) {
