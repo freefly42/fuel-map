@@ -36,10 +36,11 @@ during transfer; browsers transparently decode that content encoding before vali
 | `data_version` | Must equal the manifest value. |
 | `generated_at` | Source retrieval/generation timestamp. |
 | `notam_snapshot_at` | Timestamp of the saved NOTAM lookup. |
-| `coverage.scope` | Explicit scope label; currently `lower-48-great-deals-plus-four-state-published-airports`. |
+| `coverage.scope` | Explicit scope label; currently `all-50-states-open-public-use-airports`. |
 | `coverage.states` | Exact included state names and postal codes. |
 | `coverage.airport_count` | Number of airport objects. |
-| `coverage.visible_fuel_marker_count` | Airports not suppressed by `fuel_unavailable`. |
+| `coverage.fuel_airport_count` | Airports whose FAA fuel list advertises 100LL. |
+| `coverage.visible_fuel_marker_count` | 100LL airports not suppressed by `fuel_unavailable`. |
 | `state_average_100ll_price_usd_per_gallon` | Current lower-48 average-price lookup keyed by state code. |
 | `sources` | Human-readable provenance and Chart Supplement effective period. |
 | `airports` | Airport objects sorted by identifier. |
@@ -50,6 +51,7 @@ Each airport object contains:
 |---|---|
 | `id` | Source airport identifier; do not assume every local identifier has four characters. |
 | `name`, `city`, `state`, `state_code` | Display/location strings. |
+| `facility_use` | `public`; private-use airports are excluded from this package. |
 | `position.latitude`, `position.longitude` | Decimal-degree numbers, WGS 84; west is negative. |
 | `position.source` | Coordinate provenance label. |
 | `services.fuel_100ll` | Boolean source assertion that 100LL is listed. |

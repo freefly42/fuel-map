@@ -1,14 +1,19 @@
 {
   "artifact": {
-    "bytes": 573064,
+    "bytes": 3365231,
     "media_type": "application/json",
     "path": "fuel-airports-v2.json",
-    "sha256": "96e514e44ccd299ba0493bfcc638a86e3dda9ebcc855c4c61d1fb390c49386f0"
+    "sha256": "dcef407f0579da604dbceade9d6bd54339f177563cbfb6292807ebfab34fa8a7"
   },
   "coverage": {
-    "airport_count": 538,
-    "scope": "lower-48-great-deals-plus-four-state-published-airports",
+    "airport_count": 4705,
+    "fuel_airport_count": 3118,
+    "scope": "all-50-states-open-public-use-airports",
     "states": [
+      {
+        "code": "AK",
+        "name": "Alaska"
+      },
       {
         "code": "AL",
         "name": "Alabama"
@@ -30,6 +35,10 @@
         "name": "Colorado"
       },
       {
+        "code": "CT",
+        "name": "Connecticut"
+      },
+      {
         "code": "DE",
         "name": "Delaware"
       },
@@ -40,6 +49,10 @@
       {
         "code": "GA",
         "name": "Georgia"
+      },
+      {
+        "code": "HI",
+        "name": "Hawaii"
       },
       {
         "code": "IA",
@@ -178,6 +191,10 @@
         "name": "Virginia"
       },
       {
+        "code": "VT",
+        "name": "Vermont"
+      },
+      {
         "code": "WA",
         "name": "Washington"
       },
@@ -194,9 +211,9 @@
         "name": "Wyoming"
       }
     ],
-    "visible_fuel_marker_count": 535
+    "visible_fuel_marker_count": 3115
   },
-  "data_version": "20260812T002851Z",
+  "data_version": "20260812T002851Z-nasr20260806",
   "generated_at": "2026-08-12T00:28:51Z",
   "notam_snapshot_at": "2026-08-07T19:22:29Z",
   "schema": "fuel-airports-latest/v1",

@@ -2,8 +2,8 @@
 
 ## Product boundary
 
-The current deliverable is a static proof of concept with a four-state snapshot. The target is
-an offline-first CONUS 48-state PWA that can be hosted independently and later served or
+The current deliverable is a static proof of concept with all-50-state public-airport data. It is
+an offline-first PWA that can be hosted independently and later served or
 embedded by Stratux without changing its data model. It is a planning aid, not an authoritative
 dispatch or preflight source.
 
@@ -41,7 +41,7 @@ the artifact is requested with `?v=<data_version>` so intermediary and service-w
 not confuse two snapshots that use the stable v1 filename.
 
 Data files are checked into GitHub so a deployment can obtain a specific commit without a live
-data pipeline. Expansion to 48 states should preserve schema v1 where possible; incompatible
+data pipeline. Nationwide expansion preserves the existing schema; incompatible
 changes require new schema and artifact names.
 
 Public clients fetch the verified data pair from GitHub on page load; Stratux clients retain their

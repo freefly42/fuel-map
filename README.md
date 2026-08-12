@@ -12,14 +12,13 @@ Stratux runtime dependency.
 
 ## Current state and limits
 
-The checked-in snapshot contains **364 airports in only four states: Arizona, New Mexico,
-Nevada, and Texas**. It is not nationwide or 48-state data. Three airports in the saved NOTAM
-snapshot (`KCVN`, `KIAH`, and `KLBX`) remain in the JSON for route lookup and auditability and
-appear as red warning markers, alongside 361 ordinary fuel markers.
+The checked-in snapshot contains every open, public-use airport in all 50 states from FAA NASR.
+Airports advertising 100LL are also written to `config/airports.json` for price updates; airports
+without advertised 100LL remain available as route destinations without becoming fuel markers.
 
 The app currently uses a lightweight geographic plot rather than a full aeronautical basemap.
-The intended next stages are 48-state CONUS coverage, nationwide label decluttering, public
-static hosting, and packaging the same static assets into Stratux.
+The intended next stages are nationwide label decluttering, public static hosting, and packaging
+the same static assets into Stratux.
 
 > **Planning aid only.** Fuel availability and price data can be stale or wrong. Always verify
 > fuel, airport status, weather, and current NOTAMs with authoritative sources before flight.
@@ -42,6 +41,16 @@ at the detected speed; when only position is available, a saved manual groundspe
 beside the size slider. Position and distance calculations stay in the browser.
 
 ## Build the data
+
+Import the current FAA NASR `APT_BASE.csv` (or its containing ZIP) first:
+
+```sh
+python3 scripts/import_nasr_airports.py /path/to/APT_BASE.csv
+```
+
+The importer keeps only open, public-use airports in the 50 states. It writes every such airport
+to the data package and writes only airports whose FAA fuel list contains `100LL` to
+`config/airports.json`. Existing prices are retained when identifiers match.
 
 The builder consumes the already-saved CSV and metadata snapshot. It performs no network
 requests and must not be pointed at a live NOTAM source.
@@ -72,9 +81,8 @@ cd fuel-map
 python3 scripts/validate.py
 ```
 
-The validation checks canonical JSON and its checksum, both v1 schemas, the sample route airports,
-the exact four-state scope, all 364 airports, and consistency between current NOTAM warnings and
-the visible-marker count.
+The validation checks canonical JSON and its checksum, both v1 schemas, all 50 states, public-use
+airport and 100LL queue counts, sample route airports, and the visible-marker count.
 
 The data contract is in [DATA_FORMAT.md](DATA_FORMAT.md), design and integration decisions are
 in [ARCHITECTURE.md](ARCHITECTURE.md).

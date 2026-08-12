@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the checked-in four-state fuel package without third-party modules."""
+"""Validate the checked-in nationwide fuel package without third-party modules."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 DATA = ROOT / "data"
-EXPECTED_STATES = {"AZ", "NM", "NV", "TX"}
+EXPECTED_STATES = set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY".split())
 EXPECTED_ROUTE = {"KHND", "KSJN", "KIWS"}
 
 
@@ -34,16 +34,18 @@ def main() -> int:
     assert len(raw) == latest["artifact"]["bytes"]
     airports = {airport["id"]: airport for airport in package["airports"]}
     published = set(json.loads((ROOT / "config" / "airports.json").read_text()))
-    assert published <= airports.keys() and len(published) == 364
+    assert published <= airports.keys() and len(published) >= 3000
+    assert len(airports) >= 4500
     assert all(re.fullmatch(r"[A-Z0-9]{2,4}", identifier) for identifier in airports)
     assert EXPECTED_ROUTE <= airports.keys()
-    assert EXPECTED_STATES <= {airport["state_code"] for airport in airports.values()}
-    assert not {"AK", "HI"} & {airport["state_code"] for airport in airports.values()}
+    assert EXPECTED_STATES == {airport["state_code"] for airport in airports.values()}
+    assert all(airport.get("facility_use") == "public" for airport in airports.values())
+    assert all(airports[identifier]["services"]["fuel_100ll"] for identifier in published)
     assert all(airport["deal_rating"] in {0, 1, 2} for airport in airports.values())
     assert any(airport["deal_rating"] == 2 for airport in airports.values())
     assert all(airport.get("fuel_24_hours") in {True, False, None} for airport in airports.values())
     averages = package["state_average_100ll_price_usd_per_gallon"]
-    assert len(averages) == 48 and EXPECTED_STATES <= averages.keys()
+    assert len(averages) == 48 and EXPECTED_STATES - {"AK", "HI"} <= averages.keys()
     assert not {"AK", "HI", "DC"} & averages.keys()
     assert all(isinstance(price, (int, float)) and price > 0 for price in averages.values())
     unavailable = {airport["id"] for airport in airports.values() if airport["fuel_unavailable"]}
@@ -58,11 +60,15 @@ def main() -> int:
         or datetime.fromisoformat(airport["fuel_checked_at"].replace("Z", "+00:00"))
         for airport in airports.values()
     )
-    visible = [airport for airport in airports.values() if not airport["fuel_unavailable"]]
+    visible = [airport for airport in airports.values()
+               if airport["services"]["fuel_100ll"] and not airport["fuel_unavailable"]]
+    assert package["coverage"]["airport_count"] == len(airports)
+    assert package["coverage"]["fuel_airport_count"] == len(published)
+    assert {state["code"] for state in package["coverage"]["states"]} == EXPECTED_STATES
     assert package["coverage"]["visible_fuel_marker_count"] == len(visible)
     assert latest["coverage"] == package["coverage"]
-    print(f"validated pretty JSON, v2 data schema, 364 published four-state airports, "
-          f"{len(airports) - len(published)} additional deal airports, and {len(visible)} visible markers")
+    print(f"validated pretty JSON, v2 data schema, {len(airports)} public airports in all 50 states, "
+          f"{len(published)} advertising 100LL, and {len(visible)} visible fuel markers")
     return 0
 
 
