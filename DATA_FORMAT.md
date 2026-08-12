@@ -36,9 +36,11 @@ during transfer; browsers transparently decode that content encoding before vali
 | `data_version` | Must equal the manifest value. |
 | `generated_at` | Source retrieval/generation timestamp. |
 | `notam_snapshot_at` | Timestamp of the saved NOTAM lookup. |
-| `coverage.scope` | Explicit scope label; currently `all-50-states-open-public-use-airports`. |
+| `coverage.scope` | Explicit scope label for public airports and restricted fuel airports in all 50 states. |
 | `coverage.states` | Exact included state names and postal codes. |
 | `coverage.airport_count` | Number of airport objects. |
+| `coverage.public_airport_count` | Number of public-use airport objects. |
+| `coverage.restricted_airport_count` | Number of private-use 100LL airports shown for emergency awareness. |
 | `coverage.fuel_airport_count` | Airports whose FAA fuel list advertises 100LL. |
 | `coverage.visible_fuel_marker_count` | 100LL airports not suppressed by `fuel_unavailable`. |
 | `state_average_100ll_price_usd_per_gallon` | Current lower-48 average-price lookup keyed by state code. |
@@ -50,8 +52,9 @@ Each airport object contains:
 | Field | Type and meaning |
 |---|---|
 | `id` | Source airport identifier; do not assume every local identifier has four characters. |
+| `faa_id` | FAA location identifier used by NOTAMs and NASR. |
 | `name`, `city`, `state`, `state_code` | Display/location strings. |
-| `facility_use` | `public`; private-use airports are excluded from this package. |
+| `facility_use` | `public`, or `restricted` for private-use airports that advertise 100LL. |
 | `position.latitude`, `position.longitude` | Decimal-degree numbers, WGS 84; west is negative. |
 | `position.source` | Coordinate provenance label. |
 | `services.fuel_100ll` | Boolean source assertion that 100LL is listed. |
@@ -73,9 +76,8 @@ the service mode, nullable numeric `full_service_price_usd_per_gallon` and
 `price_age_days` measured at `generated_at`, nullable `source_updated`, and nullable
 `source_url`. A missing price is unknown, not zero.
 
-A parsed NOTAM contains `number`, `starts_at`, `ends_at`, `text`, and `raw`. `raw` preserves the
-exact saved detail string. If an old snapshot cannot be parsed, an object containing only
-`raw` is valid. Consumers must keep NOTAM-affected airports in route lookup and detail views,
+A parsed NOTAM contains `number`, `starts_at`, `ends_at`, `text`, and `active`. Older snapshots may
+also contain `raw`. Consumers must keep NOTAM-affected airports in route lookup and detail views,
 but must not render `fuel_unavailable: true` airports as ordinary fuel markers.
 
 ## Compatibility
