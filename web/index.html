@@ -13,7 +13,6 @@
       <div class="brand-lockup">
         <img class="brand-logo" src="texas-pilot-logo.png" alt="Texas Pilot">
         <div>
-        <p class="eyebrow">Stratux companion</p>
         <h1>100LL Map</h1>
         </div>
       </div>
@@ -48,21 +47,27 @@
               <input id="symbol-size" type="range" min="0.5" max="3" step="0.25" value="1">
               <output id="symbol-size-label" for="symbol-size">100%</output>
             </label>
-            <label class="groundspeed-setting" id="groundspeed-setting" for="groundspeed" hidden>
-              Speed
-              <span><input id="groundspeed" type="number" min="1" max="999" step="1" inputmode="decimal" placeholder="kt"> kt</span>
-            </label>
-            <div class="planning-setting location-setting">
-              <span>Location</span>
-              <button id="current-location" type="button" aria-label="Use current location" aria-pressed="true" title="Use current location">⌖</button>
-              <input id="planning-location" list="airport-options" autocomplete="off" placeholder="Airport ID" aria-label="Planning airport identifier">
-            </div>
-            <datalist id="airport-options"></datalist>
-            <label class="planning-setting fuel-remaining-setting" for="fuel-remaining">
-              Fuel time
-              <input id="fuel-remaining" type="text" size="5" inputmode="numeric" pattern="[0-9]+:[0-5][0-9]" maxlength="6" placeholder="hh:mm" autocomplete="off" aria-label="Fuel remaining duration in hours and minutes">
-            </label>
+            <button id="settings-open" class="settings-open" type="button" aria-label="Open flight settings" title="Flight settings">⚙</button>
           </div>
+          <dialog id="settings-dialog" aria-label="Flight settings">
+            <form method="dialog">
+              <div class="settings-row">
+                <div class="planning-setting location-setting">
+                  <span>Loc</span>
+                  <button id="current-location" type="button" aria-label="Use current location" aria-pressed="true" title="Use current location">⌖</button>
+                  <input id="planning-location" size="5" maxlength="4" list="airport-options" autocomplete="off" placeholder="ID" aria-label="Planning airport identifier">
+                </div>
+                <label class="groundspeed-setting" id="groundspeed-setting" for="groundspeed" hidden>
+                  Speed <span><input id="groundspeed" type="number" min="1" max="550" step="1" inputmode="decimal" placeholder="kt"> kt</span>
+                </label>
+                <label class="planning-setting fuel-remaining-setting" for="fuel-remaining">
+                  Fuel <input id="fuel-remaining" type="text" size="5" inputmode="numeric" pattern="[0-9]{1,2}:[0-5][0-9]" maxlength="5" placeholder="hh:mm" autocomplete="off" aria-label="Fuel remaining duration in hours and minutes">
+                </label>
+                <button class="settings-close" value="close" aria-label="Close flight settings">×</button>
+              </div>
+              <datalist id="airport-options"></datalist>
+            </form>
+          </dialog>
         </div>
         <details class="legend-panel">
           <summary>Show legend</summary>

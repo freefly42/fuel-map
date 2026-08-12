@@ -18,6 +18,7 @@ const tooltip = document.querySelector("#airport-tooltip");
 const ROUTE_STORAGE_KEY = "fuel-map-route";
 const symbolSizeInput = document.querySelector("#symbol-size");
 const symbolSizeLabel = document.querySelector("#symbol-size-label");
+const settingsDialog = document.querySelector("#settings-dialog");
 const SYMBOL_SIZE_STORAGE_KEY = "fuel-map-symbol-size";
 const groundspeedSetting = document.querySelector("#groundspeed-setting");
 const groundspeedInput = document.querySelector("#groundspeed");
@@ -266,6 +267,10 @@ function parseDuration(value) {
   return Number.isSafeInteger(minutes) ? minutes : null;
 }
 
+function insertDurationColon(value, inputType) {
+  return /^\d{2}$/.test(value) && inputType !== "deleteContentBackward" ? `${value}:` : value;
+}
+
 function reserveMinutes(airport) {
   const speed = navigationSpeed();
   return state.fuelMinutes === null || !state.aircraftPosition || !speed
@@ -340,7 +345,6 @@ function fuelAvailable24Hours(airport) {
 }
 
 function makeClickable(node, airport) {
-  node.addEventListener("pointerdown", event => event.stopPropagation());
   node.addEventListener("click", event => { event.stopPropagation(); showAirport(airport, event); });
 }
 
@@ -506,6 +510,7 @@ console.assert(fuelColor(colorCheck, texasAverage) === "rgb(128, 128, 128)", "fu
 console.assert(lowestPrice(colorCheck, 30) === null && wheelZoomFactor(1, 0) < 1.01, "fresh price or smooth zoom failed");
 console.assert(servicePrice(false, 5.99) === "none" && servicePrice(true, null) === "unknown" && servicePrice(true, 5.99) === "$5.99", "service price labels failed");
 console.assert(servicePrice(true, 5.99, "*") === "$5.99*", "guaranteed price label failed");
+console.assert(insertDurationColon("03", "insertText") === "03:" && insertDurationColon("03", "deleteContentBackward") === "03", "duration colon insertion failed");
 console.assert(Math.abs(distanceNm({ latitude: 32.8968, longitude: -97.038 }, { latitude: 32.8998, longitude: -97.0403 }) - 0.2) < 0.1, "nautical-mile distance failed");
 state.aircraftPosition = { latitude: 0, longitude: 0 };
 state.manualSpeedKnots = 120;
@@ -554,20 +559,27 @@ map.addEventListener("pointermove", event => {
   const currentDistance = distanceBetweenPointers();
   if (!pinchDistance || !currentDistance) return;
   const [first, second] = pointers.values();
-  zoomAt((first.clientX + second.clientX) / 2, (first.clientY + second.clientY) / 2, pinchDistance / currentDistance);
+  const previousCenter = pointersCenter(first === event ? previous : first, second === event ? previous : second);
+  const currentCenter = pointersCenter(first, second);
+  panBy(currentCenter.x - previousCenter.x, currentCenter.y - previousCenter.y, false);
+  zoomAt(currentCenter.x, currentCenter.y, pinchDistance / currentDistance);
   pinchDistance = currentDistance;
 });
 
-function panBy(clientDeltaX, clientDeltaY) {
+function panBy(clientDeltaX, clientDeltaY, render = true) {
   const rect = map.getBoundingClientRect();
   state.view.x = Math.max(0, Math.min(BASE_VIEW.width - state.view.width, state.view.x - clientDeltaX * state.view.width / rect.width));
   state.view.y = Math.max(0, Math.min(BASE_VIEW.height - state.view.height, state.view.y - clientDeltaY * state.view.height / rect.height));
-  renderMap();
+  if (render) renderMap();
 }
 
 function distanceBetweenPointers() {
   const [first, second] = pointers.values();
   return Math.hypot(first.clientX - second.clientX, first.clientY - second.clientY);
+}
+
+function pointersCenter(first, second) {
+  return { x: (first.clientX + second.clientX) / 2, y: (first.clientY + second.clientY) / 2 };
 }
 
 function releasePointer(event) {
@@ -690,7 +702,7 @@ groundspeedInput.addEventListener("change", () => {
 
 try {
   const savedSpeed = Number(localStorage.getItem(MANUAL_SPEED_STORAGE_KEY));
-  if (Number.isFinite(savedSpeed) && savedSpeed > 0 && savedSpeed <= 999) {
+  if (Number.isFinite(savedSpeed) && savedSpeed > 0 && savedSpeed <= 550) {
     state.manualSpeedKnots = savedSpeed;
     groundspeedInput.value = String(savedSpeed);
   }
@@ -698,7 +710,8 @@ try {
   console.warn("Could not load manual groundspeed", error);
 }
 
-fuelRemainingInput.addEventListener("input", () => {
+fuelRemainingInput.addEventListener("input", event => {
+  fuelRemainingInput.value = insertDurationColon(fuelRemainingInput.value, event.inputType);
   state.fuelMinutes = fuelRemainingInput.value ? parseDuration(fuelRemainingInput.value) : null;
   fuelRemainingInput.setCustomValidity(fuelRemainingInput.value && state.fuelMinutes === null ? "Use hours:minutes, for example 3:30" : "");
   try {
@@ -732,6 +745,7 @@ function setSymbolScale(value, persist = false) {
 }
 
 symbolSizeInput.addEventListener("input", () => setSymbolScale(Number(symbolSizeInput.value), true));
+document.querySelector("#settings-open").addEventListener("click", () => settingsDialog.showModal());
 
 try {
   const savedSymbolScale = Number(localStorage.getItem(SYMBOL_SIZE_STORAGE_KEY));

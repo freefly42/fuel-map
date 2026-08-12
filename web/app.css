@@ -37,20 +37,25 @@ input { min-width: 0; flex: 1; border: 1px solid #8b97aa; padding: .75rem .85rem
 button { border: 0; padding: .75rem 1rem; background: #bf0a30; color: #fff; font-weight: 800; cursor: pointer; }
 button:hover { background: #950824; }
 .map-controls { position: absolute; z-index: 5; right: .75rem; bottom: .75rem; left: .75rem; display: flex; align-items: center; gap: .6rem; pointer-events: none; }
-.map-controls label, .map-controls .planning-setting { margin: 0; border-radius: .6rem; padding: .45rem .65rem; background: rgba(255, 255, 255, .92); box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .3); pointer-events: auto; }
+.map-controls label, .settings-open { margin: 0; border-radius: .6rem; padding: .45rem .65rem; background: rgba(255, 255, 255, .92); box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .3); pointer-events: auto; }
 .symbol-size-setting { display: flex; flex: 1; align-items: center; gap: .5rem; max-width: 20rem; color: #172033; font-size: .8rem; font-weight: 700; }
 .symbol-size-setting input { flex: 1; padding: 0; accent-color: #002868; }
 .symbol-size-setting output { min-width: 3.2rem; color: #5a6270; font-variant-numeric: tabular-nums; }
-.groundspeed-setting { display: flex; flex: none; align-items: center; gap: .4rem; color: #172033; }
+.settings-open { padding: .65rem .8rem; background: #bf0a30; color: #fff; font-size: 1.5rem; line-height: 1; }
+#settings-dialog { width: fit-content; max-width: calc(100% - 1rem); border: 0; border-radius: .75rem; padding: .6rem; color: #172033; box-shadow: 0 1rem 3rem rgba(0, 0, 0, .4); }
+#settings-dialog::backdrop { background: rgba(0, 26, 68, .65); }
+.settings-row { display: flex; align-items: center; gap: .4rem; white-space: nowrap; }
+.settings-close { padding: .2rem .45rem; font-size: 1.25rem; line-height: 1; }
+.groundspeed-setting { display: flex; flex: none; align-items: center; gap: .25rem; color: #172033; }
 .groundspeed-setting[hidden] { display: none; }
-.groundspeed-setting span { display: flex; align-items: center; gap: .2rem; }
-.groundspeed-setting input { width: 4.5rem; padding: .3rem .4rem; text-transform: none; }
-.planning-setting { display: flex; flex: none; align-items: center; gap: .4rem; color: #172033; font-size: .82rem; font-weight: 750; }
-.planning-setting input { padding: .3rem .4rem; }
-.location-setting input { width: 7rem; flex: none; }
+.groundspeed-setting span { display: flex; align-items: center; gap: .1rem; }
+.groundspeed-setting input { width: 4.5ch; padding: .25rem .2rem; text-transform: none; }
+.planning-setting { display: flex; flex: none; align-items: center; gap: .25rem; color: #172033; font-size: .82rem; font-weight: 750; }
+.planning-setting input { padding: .25rem .2rem; }
+.location-setting input { width: 5ch; flex: none; }
 .location-setting button { padding: .25rem .5rem; border: 1px solid #002868; background: #fff; color: #002868; font-size: 1.2rem; line-height: 1; }
 .location-setting button[aria-pressed="true"] { background: #002868; color: #fff; }
-.fuel-remaining-setting input { width: 6.5ch; text-transform: none; }
+.fuel-remaining-setting input { width: 5.5ch; text-transform: none; }
 #route-message { grid-column: 1 / -1; min-height: 1.2rem; margin: 0; color: #bf0a30; }
 
 .map-card { position: relative; overflow: hidden; }
