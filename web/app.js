@@ -538,7 +538,6 @@ let pinchDistance = null;
 
 map.addEventListener("pointerdown", event => {
   if (event.pointerType === "mouse" && event.button !== 0) return;
-  map.setPointerCapture(event.pointerId);
   pointers.set(event.pointerId, event);
   hideAirport();
   map.classList.add("dragging");
@@ -547,6 +546,7 @@ map.addEventListener("pointerdown", event => {
 
 map.addEventListener("pointermove", event => {
   if (!pointers.has(event.pointerId)) return;
+  map.setPointerCapture(event.pointerId);
   const previous = pointers.get(event.pointerId);
   pointers.set(event.pointerId, event);
   if (pointers.size === 1) {
