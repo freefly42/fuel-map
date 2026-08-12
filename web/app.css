@@ -44,6 +44,7 @@ button:hover { background: #950824; }
 .settings-open { padding: .65rem .8rem; background: #bf0a30; color: #fff; font-size: 1.5rem; line-height: 1; }
 #settings-dialog { width: fit-content; max-width: calc(100% - 1rem); border: 0; border-radius: .75rem; padding: .6rem; color: #172033; box-shadow: 0 1rem 3rem rgba(0, 0, 0, .4); }
 #settings-dialog::backdrop { background: rgba(0, 26, 68, .65); }
+#settings-heading { margin: 0 0 .4rem; font-size: 1.1rem; }
 .settings-row { display: flex; align-items: center; gap: .4rem; white-space: nowrap; }
 .settings-close { padding: .2rem .45rem; font-size: 1.25rem; line-height: 1; }
 .groundspeed-setting { display: flex; flex: none; align-items: center; gap: .25rem; color: #172033; }

@@ -1,4 +1,4 @@
-const SHELL_CACHE = "fuel-route-shell-v43";
+const SHELL_CACHE = "fuel-route-shell-v44";
 const SHELL = ["./", "./index.html", "./app.css", "./app.js", "./texas-pilot-logo.png", "./manifest.webmanifest"];
 
 self.addEventListener("install", event => {
