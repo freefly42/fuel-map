@@ -18,6 +18,7 @@ const tooltip = document.querySelector("#airport-tooltip");
 const ROUTE_STORAGE_KEY = "fuel-map-route";
 const symbolSizeInput = document.querySelector("#symbol-size");
 const symbolSizeLabel = document.querySelector("#symbol-size-label");
+const settingsDialog = document.querySelector("#settings-dialog");
 const SYMBOL_SIZE_STORAGE_KEY = "fuel-map-symbol-size";
 const groundspeedSetting = document.querySelector("#groundspeed-setting");
 const groundspeedInput = document.querySelector("#groundspeed");
@@ -729,6 +730,7 @@ function setSymbolScale(value, persist = false) {
 }
 
 symbolSizeInput.addEventListener("input", () => setSymbolScale(Number(symbolSizeInput.value), true));
+document.querySelector("#settings-open").addEventListener("click", () => settingsDialog.showModal());
 
 try {
   const savedSymbolScale = Number(localStorage.getItem(SYMBOL_SIZE_STORAGE_KEY));
