@@ -736,6 +736,7 @@ try {
 }
 
 function setSymbolScale(value, persist = false) {
+  value = Math.min(Number(symbolSizeInput.max), Math.max(Number(symbolSizeInput.min), value));
   state.symbolScale = value;
   symbolSizeInput.value = String(value);
   symbolSizeLabel.value = `${Math.round(value * 100)}%`;
@@ -750,7 +751,7 @@ document.querySelector("#settings-open").addEventListener("click", () => setting
 
 try {
   const savedSymbolScale = Number(localStorage.getItem(SYMBOL_SIZE_STORAGE_KEY));
-  if (Number.isFinite(savedSymbolScale) && savedSymbolScale >= 0.5 && savedSymbolScale <= 3) setSymbolScale(savedSymbolScale);
+  if (Number.isFinite(savedSymbolScale) && savedSymbolScale > 0) setSymbolScale(savedSymbolScale);
 } catch (error) {
   console.warn("Could not load symbol size", error);
 }
