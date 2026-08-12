@@ -687,7 +687,7 @@ groundspeedInput.addEventListener("change", () => {
 
 try {
   const savedSpeed = Number(localStorage.getItem(MANUAL_SPEED_STORAGE_KEY));
-  if (Number.isFinite(savedSpeed) && savedSpeed > 0 && savedSpeed <= 999) {
+  if (Number.isFinite(savedSpeed) && savedSpeed > 0 && savedSpeed <= 550) {
     state.manualSpeedKnots = savedSpeed;
     groundspeedInput.value = String(savedSpeed);
   }
