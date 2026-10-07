@@ -1,9 +1,9 @@
 {
   "artifact": {
-    "bytes": 4894519,
+    "bytes": 4910359,
     "media_type": "application/json",
     "path": "fuel-airports-v2.json",
-    "sha256": "9f51fe260d7610748c7b30026a3daafcc859f606117c64df4b29a57b96ba5b14"
+    "sha256": "5bc12fde46fe5048956d9b2df648dbe7c09954d46f80258e8a785a0d8491d301"
   },
   "coverage": {
     "airport_count": 4891,
@@ -215,8 +215,8 @@
     ],
     "visible_fuel_marker_count": 3229
   },
-  "data_version": "20261007T124348Z",
-  "generated_at": "2026-10-07T12:43:48Z",
+  "data_version": "20261007T125500Z",
+  "generated_at": "2026-10-07T12:55:00Z",
   "notam_snapshot_at": "2026-08-12T17:07:15Z",
   "schema": "fuel-airports-latest/v1",
   "schema_version": 1
