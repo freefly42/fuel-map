@@ -52006,7 +52006,7 @@
       "faa_id": "E60",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "E60",
       "name": "Eloy Muni",
@@ -52015,11 +52015,11 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": 26,
-          "price_date": "2026-07-17",
+          "price_age_days": 16,
+          "price_date": "2026-09-21",
           "provider": "Bel America",
-          "self_service_price_usd_per_gallon": 6.6,
-          "source_updated": "Updated 17-Jul",
+          "self_service_price_usd_per_gallon": 6.95,
+          "source_updated": "Updated 21-Sep",
           "source_url": null
         }
       ],
@@ -52144,7 +52144,7 @@
       "faa_id": "E77",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "E77",
       "name": "San Manuel",
@@ -52153,11 +52153,11 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": 15,
-          "price_date": "2026-07-28",
+          "price_age_days": 7,
+          "price_date": "2026-09-30",
           "provider": "San Manuel-Ray Blair Airport",
-          "self_service_price_usd_per_gallon": 6.25,
-          "source_updated": "Updated 28-Jul",
+          "self_service_price_usd_per_gallon": 6.85,
+          "source_updated": "Updated 30-Sep",
           "source_url": null
         }
       ],
@@ -63243,7 +63243,7 @@
       "faa_id": "AUN",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KAUN",
       "name": "Auburn Muni",
@@ -63251,11 +63251,11 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.62,
+          "full_service_price_usd_per_gallon": 7.78,
           "price_age_days": 0,
-          "price_date": "2026-08-12",
+          "price_date": "2026-10-07",
           "provider": "Threshold Technologies, Inc.",
-          "self_service_price_usd_per_gallon": 7.42,
+          "self_service_price_usd_per_gallon": 7.58,
           "source_updated": "Guaranteed",
           "source_url": null
         }
@@ -63595,7 +63595,7 @@
       "faa_id": "AVQ",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KAVQ",
       "name": "Marana Rgnl",
@@ -63603,12 +63603,12 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.7,
-          "price_age_days": 5,
-          "price_date": "2026-08-07",
+          "full_service_price_usd_per_gallon": 8.05,
+          "price_age_days": 7,
+          "price_date": "2026-09-30",
           "provider": "Tucson Aeroservice Center",
-          "self_service_price_usd_per_gallon": 7.1,
-          "source_updated": "Updated 07-Aug",
+          "self_service_price_usd_per_gallon": 7.45,
+          "source_updated": "Updated 30-Sep",
           "source_url": null
         }
       ],
@@ -71229,7 +71229,7 @@
       "faa_id": "CGZ",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KCGZ",
       "name": "Casa Grande Muni",
@@ -71237,11 +71237,11 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.3,
-          "price_age_days": null,
-          "price_date": null,
+          "full_service_price_usd_per_gallon": 7.85,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Casa Grande Municipal Airport",
-          "self_service_price_usd_per_gallon": 6.5,
+          "self_service_price_usd_per_gallon": 7.05,
           "source_updated": "Guaranteed",
           "source_url": null
         }
@@ -71303,7 +71303,7 @@
       "faa_id": "CHD",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KCHD",
       "name": "Chandler Muni",
@@ -71311,20 +71311,20 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.52,
-          "price_age_days": null,
-          "price_date": null,
+          "full_service_price_usd_per_gallon": 8.23,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Chandler Air Service GateOne",
-          "self_service_price_usd_per_gallon": 6.69,
+          "self_service_price_usd_per_gallon": 7.4,
           "source_updated": "Guaranteed",
           "source_url": null
         },
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": null,
-          "price_date": null,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Chandler Municipal Airport",
-          "self_service_price_usd_per_gallon": 6.6,
+          "self_service_price_usd_per_gallon": 6.7,
           "source_updated": "Guaranteed",
           "source_url": null
         }
@@ -79206,7 +79206,7 @@
       "faa_id": "DWA",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T04:20:06Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KDWA",
       "name": "Yolo County",
@@ -79214,9 +79214,9 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.51,
-          "price_age_days": null,
-          "price_date": null,
+          "full_service_price_usd_per_gallon": 7.69,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Davis Flight Support, LLC",
           "self_service_price_usd_per_gallon": null,
           "source_updated": "Guaranteed",
@@ -80347,7 +80347,7 @@
       "faa_id": "EDU",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KEDU",
       "name": "University",
@@ -80356,7 +80356,7 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": 33,
+          "price_age_days": 89,
           "price_date": "2026-07-10",
           "provider": "University Airport Services",
           "self_service_price_usd_per_gallon": 7.75,
@@ -84680,12 +84680,23 @@
       "faa_id": "FHU",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KFHU",
       "name": "Sierra Vista Muni-Libby Aaf",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 7.32,
+          "price_age_days": 12,
+          "price_date": "2026-09-25",
+          "provider": "City of Sierra Vista (FBO)",
+          "self_service_price_usd_per_gallon": 7.12,
+          "source_updated": "Updated 25-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 31.58846111,
         "longitude": -110.344375,
@@ -84693,8 +84704,8 @@
       },
       "services": {
         "fuel_100ll": false,
-        "full_service_100ll": false,
-        "self_service_100ll": false
+        "full_service_100ll": true,
+        "self_service_100ll": true
       },
       "state": "Arizona",
       "state_code": "AZ"
@@ -102213,7 +102224,7 @@
       "faa_id": "LHM",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KLHM",
       "name": "Lincoln Rgnl/Karl Harder Fld",
@@ -102221,12 +102232,12 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.24,
-          "price_age_days": 19,
-          "price_date": "2026-07-24",
+          "full_service_price_usd_per_gallon": 7.79,
+          "price_age_days": 6,
+          "price_date": "2026-10-01",
           "provider": "Lincoln Regional Airport/Karl Harder Field",
-          "self_service_price_usd_per_gallon": 6.94,
-          "source_updated": "Updated 24-Jul",
+          "self_service_price_usd_per_gallon": 7.49,
+          "source_updated": "Updated 01-Oct",
           "source_url": null
         }
       ],
@@ -106009,7 +106020,7 @@
       "faa_id": "MCC",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T06:12:54Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KMCC",
       "name": "Mc Clellan Airfield",
@@ -106017,12 +106028,11 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": null,
+          "full_service_price_usd_per_gallon": 8.17,
           "price_age_days": 0,
-          "price_date": "2026-08-12",
-          "price_usd_per_gallon": 6.42,
+          "price_date": "2026-10-07",
           "provider": "McClellan Jet Services",
-          "self_service_price_usd_per_gallon": null,
+          "self_service_price_usd_per_gallon": 7.17,
           "source_updated": "Guaranteed",
           "source_url": null
         }
@@ -106034,8 +106044,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": true
       },
       "state": "California",
       "state_code": "CA"
@@ -107651,7 +107661,7 @@
       "faa_id": "MHR",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KMHR",
       "name": "Sacramento Mather",
@@ -107659,21 +107669,21 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.58,
-          "price_age_days": 8,
-          "price_date": "2026-08-04",
+          "full_service_price_usd_per_gallon": 7.84,
+          "price_age_days": 2,
+          "price_date": "2026-10-05",
           "provider": "Modern Aviation Mather",
           "self_service_price_usd_per_gallon": null,
-          "source_updated": "Updated 04-Aug",
+          "source_updated": "Updated 05-Oct",
           "source_url": null
         },
         {
-          "full_service_price_usd_per_gallon": 7.55,
-          "price_age_days": 7,
-          "price_date": "2026-08-05",
+          "full_service_price_usd_per_gallon": 7.73,
+          "price_age_days": 2,
+          "price_date": "2026-10-05",
           "provider": "Mather Jet Center",
           "self_service_price_usd_per_gallon": null,
-          "source_updated": "Updated 05-Aug",
+          "source_updated": "Updated 05-Oct",
           "source_url": null
         }
       ],
@@ -111935,7 +111945,7 @@
       "faa_id": "MYV",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KMYV",
       "name": "Yuba County",
@@ -111943,12 +111953,12 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.49,
-          "price_age_days": 5,
-          "price_date": "2026-08-07",
+          "full_service_price_usd_per_gallon": 7.79,
+          "price_age_days": 6,
+          "price_date": "2026-10-01",
           "provider": "Honeycutt Aviation",
-          "self_service_price_usd_per_gallon": 6.99,
-          "source_updated": "Updated 07-Aug",
+          "self_service_price_usd_per_gallon": 7.29,
+          "source_updated": "Updated 01-Oct",
           "source_url": null
         }
       ],
@@ -112035,7 +112045,7 @@
       "faa_id": "MZJ",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KMZJ",
       "name": "Pinal Airpark",
@@ -112045,10 +112055,10 @@
         {
           "full_service_price_usd_per_gallon": 7.0,
           "price_age_days": 1,
-          "price_date": "2026-08-11",
+          "price_date": "2026-10-06",
           "provider": "Ascent Aviation Services",
           "self_service_price_usd_per_gallon": null,
-          "source_updated": "Updated 11-Aug",
+          "source_updated": "Updated 06-Oct",
           "source_url": null
         }
       ],
@@ -123056,7 +123066,7 @@
       "faa_id": "RIU",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KRIU",
       "name": "Rancho Murieta",
@@ -123065,11 +123075,11 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": 21,
-          "price_date": "2026-07-22",
+          "price_age_days": 5,
+          "price_date": "2026-10-02",
           "provider": "Rancho Murieta Airport",
-          "self_service_price_usd_per_gallon": 7.2,
-          "source_updated": "Updated 22-Jul",
+          "self_service_price_usd_per_gallon": 7.75,
+          "source_updated": "Updated 02-Oct",
           "source_url": null
         }
       ],
@@ -125694,7 +125704,7 @@
       "faa_id": "SAC",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KSAC",
       "name": "Sacramento Exec",
@@ -125702,12 +125712,12 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 7.83,
+          "full_service_price_usd_per_gallon": 8.3,
           "price_age_days": 8,
-          "price_date": "2026-08-04",
+          "price_date": "2026-09-29",
           "provider": "Modern Aviation Executive",
-          "self_service_price_usd_per_gallon": 6.83,
-          "source_updated": "Updated 04-Aug",
+          "self_service_price_usd_per_gallon": 7.3,
+          "source_updated": "Updated 29-Sep",
           "source_url": null
         }
       ],
@@ -128936,7 +128946,7 @@
       "faa_id": "SMF",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KSMF",
       "name": "Sacramento Intl",
@@ -128944,12 +128954,12 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 8.04,
+          "full_service_price_usd_per_gallon": 8.64,
           "price_age_days": 8,
-          "price_date": "2026-08-04",
+          "price_date": "2026-09-29",
           "provider": "Modern Aviation International",
           "self_service_price_usd_per_gallon": null,
-          "source_updated": "Updated 04-Aug",
+          "source_updated": "Updated 29-Sep",
           "source_url": null
         }
       ],
@@ -129531,7 +129541,7 @@
       "faa_id": "SOW",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KSOW",
       "name": "Show Low Rgnl",
@@ -129539,12 +129549,12 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 6.34,
-          "price_age_days": 12,
-          "price_date": "2026-07-31",
+          "full_service_price_usd_per_gallon": 6.64,
+          "price_age_days": 15,
+          "price_date": "2026-09-22",
           "provider": "Show Low Regional Airport",
-          "self_service_price_usd_per_gallon": 6.09,
-          "source_updated": "Updated 31-Jul",
+          "self_service_price_usd_per_gallon": 6.39,
+          "source_updated": "Updated 22-Sep",
           "source_url": null
         }
       ],
@@ -134448,7 +134458,7 @@
       "faa_id": "TUS",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "KTUS",
       "name": "Tucson Intl",
@@ -134456,18 +134466,18 @@
       "notams": [],
       "offers": [
         {
-          "full_service_price_usd_per_gallon": 8.5,
-          "price_age_days": null,
-          "price_date": null,
+          "full_service_price_usd_per_gallon": 8.55,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Million Air Tucson",
           "self_service_price_usd_per_gallon": null,
           "source_updated": "Guaranteed",
           "source_url": null
         },
         {
-          "full_service_price_usd_per_gallon": 8.25,
-          "price_age_days": null,
-          "price_date": null,
+          "full_service_price_usd_per_gallon": 8.3,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Executive Air Tucson",
           "self_service_price_usd_per_gallon": null,
           "source_updated": "Guaranteed",
@@ -134475,8 +134485,8 @@
         },
         {
           "full_service_price_usd_per_gallon": 8.4,
-          "price_age_days": null,
-          "price_date": null,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Tucson Jet Center",
           "self_service_price_usd_per_gallon": null,
           "source_updated": "Guaranteed",
@@ -134484,11 +134494,11 @@
         },
         {
           "full_service_price_usd_per_gallon": 8.45,
-          "price_age_days": 1,
-          "price_date": "2026-08-11",
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Atlantic Aviation",
           "self_service_price_usd_per_gallon": null,
-          "source_updated": "Updated 11-Aug",
+          "source_updated": "Updated 07-Oct",
           "source_url": null
         }
       ],
@@ -139975,7 +139985,7 @@
       "faa_id": "L36",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "L36",
       "name": "Rio Linda",
@@ -139984,11 +139994,11 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": 13,
-          "price_date": "2026-07-30",
+          "price_age_days": 2,
+          "price_date": "2026-10-05",
           "provider": "Mauser Aviation",
-          "self_service_price_usd_per_gallon": 6.98,
-          "source_updated": "Updated 30-Jul",
+          "self_service_price_usd_per_gallon": 7.2,
+          "source_updated": "Updated 05-Oct",
           "source_url": null
         }
       ],
@@ -145800,7 +145810,7 @@
       "faa_id": "O08",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T04:20:06Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "O08",
       "name": "Sidney Pickels Fld",
@@ -145809,8 +145819,8 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": null,
-          "price_date": null,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Colusa County Airport",
           "self_service_price_usd_per_gallon": 7.53,
           "source_updated": "Guaranteed",
@@ -146490,7 +146500,7 @@
       "faa_id": "O41",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T05:11:52Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "O41",
       "name": "Watts-Woodland",
@@ -146500,7 +146510,7 @@
         {
           "full_service_price_usd_per_gallon": null,
           "price_age_days": 0,
-          "price_date": "2026-08-12",
+          "price_date": "2026-10-07",
           "provider": "Watts-Woodland Airport, Inc.",
           "self_service_price_usd_per_gallon": 6.99,
           "source_updated": "Guaranteed",
@@ -146765,6 +146775,7 @@
       "faa_id": "O52",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": true,
       "id": "O52",
       "name": "Sutter County",
@@ -146978,10 +146989,9 @@
           "full_service_price_usd_per_gallon": null,
           "price_age_days": 10,
           "price_date": "2026-09-27",
-          "price_usd_per_gallon": 6.48,
           "provider": "Cameron Park Airport",
-          "self_service_price_usd_per_gallon": null,
-          "source_updated": "Updated 27-Sep-2026",
+          "self_service_price_usd_per_gallon": 6.48,
+          "source_updated": "Updated 27-Sep",
           "source_url": null
         }
       ],
@@ -146992,8 +147002,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": false,
+        "self_service_100ll": true
       },
       "state": "California",
       "state_code": "CA"
@@ -147146,6 +147156,7 @@
       "faa_id": "O81",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "O81",
       "name": "Tulelake Muni",
@@ -147544,7 +147555,7 @@
       "faa_id": "P08",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": true,
       "id": "P08",
       "name": "Coolidge Muni",
@@ -147561,8 +147572,8 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": null,
-          "price_date": null,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Skyflight Services",
           "self_service_price_usd_per_gallon": 6.59,
           "source_updated": "Guaranteed",
@@ -147615,7 +147626,7 @@
       "faa_id": "P13",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": true,
       "id": "P13",
       "name": "San Carlos Apache",
@@ -147723,7 +147734,7 @@
       "faa_id": "P19",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "P19",
       "name": "Stellar Airpark",
@@ -147732,10 +147743,10 @@
       "offers": [
         {
           "full_service_price_usd_per_gallon": null,
-          "price_age_days": null,
-          "price_date": null,
+          "price_age_days": 0,
+          "price_date": "2026-10-07",
           "provider": "Stellar Fuel AZ",
-          "self_service_price_usd_per_gallon": 6.55,
+          "self_service_price_usd_per_gallon": 6.9,
           "source_updated": "Guaranteed",
           "source_url": null
         }
@@ -147849,7 +147860,7 @@
       "faa_id": "P33",
       "facility_use": "public",
       "fuel_24_hours": null,
-      "fuel_checked_at": "2026-08-12T00:28:51Z",
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "P33",
       "name": "Cochise County",
@@ -148376,12 +148387,32 @@
       "faa_id": "PAQ",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PAAQ",
       "name": "Warren \"Bud\" Woods Palmer Muni",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 5,
+          "price_date": "2026-10-02",
+          "provider": "Hinchinbrook Aerofuel, LLC",
+          "self_service_price_usd_per_gallon": 7.9,
+          "source_updated": "Updated 02-Oct",
+          "source_url": null
+        },
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Northern Petroleum Services",
+          "self_service_price_usd_per_gallon": 7.999,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.59491666,
         "longitude": -149.08872222,
@@ -148389,8 +148420,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": false,
+        "self_service_100ll": true
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -148610,12 +148641,32 @@
       "faa_id": "BET",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PABE",
       "name": "Bethel",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 11.16,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        },
+        {
+          "full_service_price_usd_per_gallon": 10.65,
+          "price_age_days": 34,
+          "price_date": "2026-09-03",
+          "provider": "Delta Western, Inc.",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 03-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 60.77855555,
         "longitude": -161.83716666,
@@ -148623,8 +148674,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": false
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -148662,12 +148713,23 @@
       "faa_id": "BRW",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PABR",
       "name": "Wiley Post-Will Rogers Meml",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 12.5,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Eskimos, Inc.",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 71.28486111,
         "longitude": -156.76858333,
@@ -148675,8 +148737,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": false
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -148714,12 +148776,23 @@
       "faa_id": "BCV",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PABV",
       "name": "Birchwood",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "C2 Aviation",
+          "self_service_price_usd_per_gallon": 7.9,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.4160875,
         "longitude": -149.50830977,
@@ -148727,8 +148800,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": false,
+        "self_service_100ll": true
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -150731,12 +150804,32 @@
       "faa_id": "LHD",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PALH",
       "name": "Lake Hood",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": 7.93,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        },
+        {
+          "full_service_price_usd_per_gallon": 8.5,
+          "price_age_days": 34,
+          "price_date": "2026-09-03",
+          "provider": "International Aviation Service",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 03-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.18663919,
         "longitude": -149.96539363,
@@ -150744,8 +150837,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": true
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -150991,12 +151084,32 @@
       "faa_id": "MRI",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PAMR",
       "name": "Merrill Fld",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 48,
+          "price_date": "2026-08-20",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": 7.93,
+          "source_updated": "Updated 20-Aug",
+          "source_url": null
+        },
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Spernak Airways",
+          "self_service_price_usd_per_gallon": 8.24,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.21354638,
         "longitude": -149.84470944,
@@ -151005,7 +151118,7 @@
       "services": {
         "fuel_100ll": false,
         "full_service_100ll": false,
-        "self_service_100ll": false
+        "self_service_100ll": true
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -151095,12 +151208,23 @@
       "faa_id": "ANC",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PANC",
       "name": "Ted Stevens Anchorage Intl",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 8.5,
+          "price_age_days": 34,
+          "price_date": "2026-09-03",
+          "provider": "International Aviation Service",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 03-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.17408472,
         "longitude": -149.9981375,
@@ -151108,8 +151232,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": false
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -151121,12 +151245,23 @@
       "faa_id": "ANI",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PANI",
       "name": "Aniak",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 11.67,
+          "price_age_days": 33,
+          "price_date": "2026-09-04",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 04-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.58140527,
         "longitude": -159.54529805,
@@ -151134,8 +151269,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": false
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -152052,12 +152187,23 @@
       "faa_id": "KSM",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PASM",
       "name": "St Mary'S",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 10.53,
+          "price_age_days": 8,
+          "price_date": "2026-09-29",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 29-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 62.06083083,
         "longitude": -163.30183638,
@@ -152065,7 +152211,7 @@
       },
       "services": {
         "fuel_100ll": false,
-        "full_service_100ll": false,
+        "full_service_100ll": true,
         "self_service_100ll": false
       },
       "state": "Alaska",
@@ -152312,12 +152458,23 @@
       "faa_id": "TKA",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PATK",
       "name": "Talkeetna",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 7.95,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 62.32137194,
         "longitude": -150.09271833,
@@ -152325,8 +152482,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": false
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -152494,12 +152651,23 @@
       "faa_id": "UUO",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PAUO",
       "name": "Willow",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 8,
+          "price_date": "2026-09-29",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": 8.03,
+          "source_updated": "Updated 29-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.75418888,
         "longitude": -150.05173888,
@@ -152507,8 +152675,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": false,
+        "self_service_100ll": true
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -152858,12 +153026,32 @@
       "faa_id": "IYS",
       "facility_use": "public",
       "fuel_24_hours": null,
+      "fuel_checked_at": "2026-10-07T11:20:07Z",
       "fuel_unavailable": false,
       "id": "PAWS",
       "name": "Wasilla",
       "notam_checked_at": "2026-08-12T17:07:15Z",
       "notams": [],
-      "offers": [],
+      "offers": [
+        {
+          "full_service_price_usd_per_gallon": 7.67,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Alaska Air Fuel, Inc.",
+          "self_service_price_usd_per_gallon": null,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        },
+        {
+          "full_service_price_usd_per_gallon": null,
+          "price_age_days": 11,
+          "price_date": "2026-09-26",
+          "provider": "Crowley",
+          "self_service_price_usd_per_gallon": 7.98,
+          "source_updated": "Updated 26-Sep",
+          "source_url": null
+        }
+      ],
       "position": {
         "latitude": 61.57198613,
         "longitude": -149.53955669,
@@ -152871,8 +153059,8 @@
       },
       "services": {
         "fuel_100ll": true,
-        "full_service_100ll": null,
-        "self_service_100ll": null
+        "full_service_100ll": true,
+        "self_service_100ll": true
       },
       "state": "Alaska",
       "state_code": "AK"
@@ -164276,8 +164464,8 @@
     ],
     "visible_fuel_marker_count": 3229
   },
-  "data_version": "20261007T114746Z",
-  "generated_at": "2026-10-07T11:47:46Z",
+  "data_version": "20261007T114850Z",
+  "generated_at": "2026-10-07T11:48:50Z",
   "notam_snapshot_at": "2026-08-12T17:07:15Z",
   "schema": "fuel-airports/v2",
   "schema_version": 2,
